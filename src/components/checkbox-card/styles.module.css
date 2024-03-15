@@ -1,0 +1,115 @@
+/* Customize the label (the container) */
+.container {
+  display: flex;
+  height: 42px;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding-right: 5px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  display: block;
+  position: relative;
+  background-color: white;
+  height: 25px;
+  width: 25px;
+  border-width: 1px;
+  border-radius: 6px;
+  background-clip: padding-box;
+  z-index: 1;
+}
+
+/* Create the envelope that surrounds the checkbox */
+.envelope {
+  z-index: 0;
+  content: "";
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #2469f6;
+  transform: translateX(-8.5%) translateY(-8.5%);
+  opacity: 0%;
+  top: 0;
+  left: 0;
+  border-radius: 7px;
+}
+
+/* Style the custom icon */
+.checkmarkIcon {
+  opacity: 0;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 8px;
+  height: 8px;
+  background-color: transparent;
+  transform: translateX(-75%) translateY(-50%);
+}
+
+/* On mouse-over, change the border color */
+.container:hover input ~ .checkmark {
+  border-color: #bdbdbd;
+}
+
+/* On mouse-over, display the icon */
+.container:hover input ~ .checkmark .checkmarkIcon {
+  opacity: 100%;
+  color: #e3e3e3;
+}
+
+/* On mouse-active/click, darken the border */
+.container:active input ~ .checkmark {
+  border-color: #bdbdbd;
+}
+
+/* On mouse-click, display the envelope */
+.container:active input ~ .envelope {
+  opacity: 10%;
+}
+
+/* On mouse-active/click, darken the custom icon */
+.container:active input ~ .checkmark .checkmarkIcon {
+  opacity: 100%;
+  color: #878787;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2469f6;
+  border-color: #2469f6;
+}
+
+/* When the checked checkbox is hovered, lighten the background */
+.container:hover input:checked ~ .checkmark {
+  background-color: #5087f8;
+  border-color: #5087f8;
+}
+
+/* When the checked checkbox is active, replace the background and the border */
+.container:active input:checked ~ .checkmark {
+  background-color: white;
+  border-color: #e3e3e3;
+}
+
+/* When the checkbox is checked, display the custom icon */
+.container input:checked ~ .checkmark .checkmarkIcon {
+  opacity: 100%;
+  color: #ffffff;
+}
